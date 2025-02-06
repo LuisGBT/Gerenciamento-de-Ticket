@@ -21,9 +21,20 @@ let TicketRepository = class TicketRepository {
             data: {
                 quantity: CreateTicketDto.quantity,
                 employee: {
-                    connect: { id: CreateTicketDto.employeeId }
+                    connect: { id: CreateTicketDto.employeeId },
                 }
             }
+        });
+    }
+    async update(id, UpdateTicketDto) {
+        return await this.PrismaService.ticket.update({
+            data: {
+                quantity: UpdateTicketDto.quantity,
+                employee: {
+                    connect: { id: UpdateTicketDto.employeeId },
+                }
+            },
+            where: { id }
         });
     }
     async findUnique(id) {
@@ -31,6 +42,9 @@ let TicketRepository = class TicketRepository {
     }
     async findAll() {
         return await this.PrismaService.ticket.findMany();
+    }
+    async delete(id) {
+        return await this.PrismaService.ticket.delete({ where: { id } });
     }
 };
 exports.TicketRepository = TicketRepository;

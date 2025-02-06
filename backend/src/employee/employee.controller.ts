@@ -13,7 +13,7 @@ export class EmployeeController {
         return this.EmployeeService.create(CreateEmployeeDto);
     }
 
-    @Get('findall')
+    @Get('find/all')
     async findAll(){
         const findAllEmployee = await this.EmployeeService.findAll();
         return findAllEmployee
@@ -26,12 +26,12 @@ export class EmployeeController {
     }
 
 
-    @Patch(':id')
+    @Patch('update/:id')
     async update(@Param('id') id: string, @Body() UpdateEmployeeDto: UpdateEmployeeDto ){
         return this.EmployeeService.update(id, UpdateEmployeeDto);
     }
 
-    @Delete(':id')
+    @Delete('delete/:id')
     async delete(@Param('id') id: string){
         return this.EmployeeService.delete(id)
     }

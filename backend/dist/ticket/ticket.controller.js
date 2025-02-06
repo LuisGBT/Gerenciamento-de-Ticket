@@ -16,6 +16,7 @@ exports.TicketController = void 0;
 const common_1 = require("@nestjs/common");
 const ticket_service_1 = require("./ticket.service");
 const create_ticket_dto_1 = require("./dto/create.ticket.dto");
+const update_ticket_dto_1 = require("./dto/update.ticket.dto");
 let TicketController = class TicketController {
     constructor(TicketService) {
         this.TicketService = TicketService;
@@ -23,12 +24,19 @@ let TicketController = class TicketController {
     async create(CreateTicketDto) {
         return await this.TicketService.create(CreateTicketDto);
     }
+    async update(id, UpdateTicketDto) {
+        return await this.TicketService.update(id, UpdateTicketDto);
+    }
     async findUnique(id) {
         let res = await this.TicketService.findUnique(id);
         return res;
     }
     async findAll() {
         let res = await this.TicketService.findAll();
+        return res;
+    }
+    async delete(id) {
+        let res = await this.TicketService.delete(id);
         return res;
     }
 };
@@ -40,6 +48,14 @@ __decorate([
     __metadata("design:paramtypes", [create_ticket_dto_1.CreateTicketDto]),
     __metadata("design:returntype", Promise)
 ], TicketController.prototype, "create", null);
+__decorate([
+    (0, common_1.Patch)('update/:id'),
+    __param(0, (0, common_1.Param)('id')),
+    __param(1, (0, common_1.Body)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String, update_ticket_dto_1.UpdateTicketDto]),
+    __metadata("design:returntype", Promise)
+], TicketController.prototype, "update", null);
 __decorate([
     (0, common_1.Get)(':id'),
     __param(0, (0, common_1.Param)('id')),
@@ -53,6 +69,13 @@ __decorate([
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", Promise)
 ], TicketController.prototype, "findAll", null);
+__decorate([
+    (0, common_1.Delete)('delete/:id'),
+    __param(0, (0, common_1.Param)('id')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String]),
+    __metadata("design:returntype", Promise)
+], TicketController.prototype, "delete", null);
 exports.TicketController = TicketController = __decorate([
     (0, common_1.Controller)('ticket'),
     __metadata("design:paramtypes", [ticket_service_1.TicketService])

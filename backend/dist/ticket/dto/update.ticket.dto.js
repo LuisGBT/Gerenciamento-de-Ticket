@@ -9,19 +9,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.CreateTicketDto = void 0;
+exports.UpdateTicketDto = void 0;
 const class_validator_1 = require("class-validator");
-class CreateTicketDto {
+class UpdateTicketDto {
 }
-exports.CreateTicketDto = CreateTicketDto;
+exports.UpdateTicketDto = UpdateTicketDto;
 __decorate([
     (0, class_validator_1.IsNumber)(),
     (0, class_validator_1.IsOptional)(),
     __metadata("design:type", Number)
-], CreateTicketDto.prototype, "quantity", void 0);
+], UpdateTicketDto.prototype, "quantity", void 0);
 __decorate([
     (0, class_validator_1.IsString)(),
     (0, class_validator_1.IsOptional)(),
     __metadata("design:type", String)
-], CreateTicketDto.prototype, "employeeId", void 0);
+], UpdateTicketDto.prototype, "employeeId", void 0);
 //# sourceMappingURL=update.ticket.dto.js.map

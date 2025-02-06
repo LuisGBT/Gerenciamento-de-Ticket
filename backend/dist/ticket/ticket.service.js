@@ -33,6 +33,18 @@ let TicketService = class TicketService {
             throw new common_1.HttpException(error.message, common_1.HttpStatus.NOT_FOUND);
         }
     }
+    async update(id, UpdateTicketDto) {
+        try {
+            let res = await this.TicketRepository.findUnique(id);
+            if (res == null) {
+                throw new common_1.HttpException('NOT FOUND', common_1.HttpStatus.NOT_FOUND);
+            }
+            return this.TicketRepository.update(id, UpdateTicketDto);
+        }
+        catch (error) {
+            throw new common_1.HttpException(error.message, common_1.HttpStatus.NOT_FOUND);
+        }
+    }
     async findUnique(id) {
         try {
             return this.TicketRepository.findUnique(id);
@@ -48,6 +60,10 @@ let TicketService = class TicketService {
         catch (error) {
             throw new common_1.HttpException(error.message, common_1.HttpStatus.BAD_REQUEST);
         }
+    }
+    async delete(id) {
+        let res = await this.TicketRepository.delete(id);
+        return res;
     }
 };
 exports.TicketService = TicketService;

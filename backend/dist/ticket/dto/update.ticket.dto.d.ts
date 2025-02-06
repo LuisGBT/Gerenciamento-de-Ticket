@@ -1,4 +1,4 @@
-export declare class CreateTicketDto {
+export declare class UpdateTicketDto {
     quantity: number;
     employeeId: string;
 }
