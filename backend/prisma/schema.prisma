@@ -1,0 +1,32 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Employee{
+  id          String   @id @default(uuid()) 
+  name        String   @db.VarChar(55) 
+  CPF         String   @unique @db.Char(11)
+  situation   String   @db.VarChar(10) // active or inactive
+  changeDate  DateTime @default(now())
+  tickets     Ticket[]
+  
+}
+
+model Ticket{
+  id           String   @id @default(uuid())
+  quantity     Int      @db.Integer()
+  deliveryDate DateTime @updatedAt
+  employeeId   String   
+  employee     Employee @relation(fields: [employeeId], references: [id])
+}
