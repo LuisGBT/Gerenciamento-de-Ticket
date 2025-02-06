@@ -29,7 +29,6 @@ let TicketController = class TicketController {
     }
     async findAll() {
         let res = await this.TicketService.findAll();
-        console.log(res);
         return res;
     }
 };
@@ -49,7 +48,7 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], TicketController.prototype, "findUnique", null);
 __decorate([
-    (0, common_1.Get)('findall'),
+    (0, common_1.Get)('find/all'),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", Promise)

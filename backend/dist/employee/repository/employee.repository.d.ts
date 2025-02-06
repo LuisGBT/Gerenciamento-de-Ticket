@@ -10,10 +10,10 @@ export declare class EmployeeRepository {
     findUnique(id: string): Promise<EmployeeEntity>;
     findUniqueCpf(CPF: string): Promise<EmployeeEntity>;
     update(id: string, UpdateEmployeeDto: UpdateEmployeeDto): Promise<{
-        id: string;
         name: string;
         CPF: string;
         situation: string;
+        id: string;
         changeDate: Date;
     }>;
     delete(id: string): Promise<EmployeeEntity>;

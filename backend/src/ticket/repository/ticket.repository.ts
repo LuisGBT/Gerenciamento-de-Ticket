@@ -23,8 +23,7 @@ export class TicketRepository {
     }
 
     async findAll(): Promise<TicketEntity[]>{
-        const res = await this.PrismaService.ticket.findMany();
-        console.log(res);
-        return res;
+        return await this.PrismaService.ticket.findMany();
+        
     }
 }

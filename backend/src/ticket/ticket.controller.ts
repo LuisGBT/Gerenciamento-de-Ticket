@@ -18,10 +18,9 @@ export class TicketController {
       return res;
    }
 
-   @Get('findall')
+   @Get('find/all')
    async findAll(){
      let res = await this.TicketService.findAll();
-     console.log(res);
      return res;
    }
 

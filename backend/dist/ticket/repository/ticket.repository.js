@@ -30,9 +30,7 @@ let TicketRepository = class TicketRepository {
         return await this.PrismaService.ticket.findUnique({ where: { id } });
     }
     async findAll() {
-        const res = await this.PrismaService.ticket.findMany();
-        console.log(res);
-        return res;
+        return await this.PrismaService.ticket.findMany();
     }
 };
 exports.TicketRepository = TicketRepository;

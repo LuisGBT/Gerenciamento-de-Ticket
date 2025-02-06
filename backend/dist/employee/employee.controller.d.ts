@@ -9,10 +9,10 @@ export declare class EmployeeController {
     findAll(): Promise<EmployeeEntity[]>;
     FindUnique(id: string): Promise<EmployeeEntity>;
     update(id: string, UpdateEmployeeDto: UpdateEmployeeDto): Promise<{
-        id: string;
         name: string;
         CPF: string;
         situation: string;
+        id: string;
         changeDate: Date;
     }>;
     delete(id: string): Promise<EmployeeEntity>;

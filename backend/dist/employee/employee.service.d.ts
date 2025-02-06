@@ -8,10 +8,10 @@ export declare class EmployeeService {
     findAll(): Promise<import("./entities/employeeEntity").EmployeeEntity[]>;
     findUnique(id: string): Promise<import("./entities/employeeEntity").EmployeeEntity>;
     update(id: string, UpdateEmployeeDto: UpdateEmployeeDto): Promise<{
-        id: string;
         name: string;
         CPF: string;
         situation: string;
+        id: string;
         changeDate: Date;
     }>;
     delete(id: string): Promise<import("./entities/employeeEntity").EmployeeEntity>;

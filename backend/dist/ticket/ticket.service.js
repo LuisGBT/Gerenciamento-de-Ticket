@@ -43,9 +43,7 @@ let TicketService = class TicketService {
     }
     async findAll() {
         try {
-            const res = await this.TicketRepository.findAll();
-            console.log(res);
-            return res;
+            return await this.TicketRepository.findAll();
         }
         catch (error) {
             throw new common_1.HttpException(error.message, common_1.HttpStatus.BAD_REQUEST);
