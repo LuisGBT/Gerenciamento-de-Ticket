@@ -14,7 +14,7 @@ export class EmployeeController {
     }
 
     @Get('findall')
-    async FindAll(){
+    async findAll(){
         const findAllEmployee = await this.EmployeeService.findAll();
         return findAllEmployee
     }

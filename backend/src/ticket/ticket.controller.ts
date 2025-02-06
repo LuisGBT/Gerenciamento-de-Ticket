@@ -1,4 +1,4 @@
-import { Controller, Post, Body } from '@nestjs/common';
+import { Controller, Post, Body, Get, Param } from '@nestjs/common';
 import { TicketService } from './ticket.service';
 import { CreateTicketDto } from './dto/create.ticket.dto';
 
@@ -9,7 +9,20 @@ export class TicketController {
 
    @Post('create')
    async create(@Body() CreateTicketDto: CreateTicketDto){
-        return this.TicketService.create(CreateTicketDto);
+        return  await this.TicketService.create(CreateTicketDto);
+   }
+
+   @Get(':id')
+   async findUnique(@Param('id') id: string){
+      let res =  await this.TicketService.findUnique(id);
+      return res;
+   }
+
+   @Get('findall')
+   async findAll(){
+     let res = await this.TicketService.findAll();
+     console.log(res);
+     return res;
    }
 
 }

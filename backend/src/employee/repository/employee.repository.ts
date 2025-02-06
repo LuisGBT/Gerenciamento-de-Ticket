@@ -9,11 +9,11 @@ export class EmployeeRepository {
     constructor(private  PrismaService: PrismaService){}
 
     async create(CreateEmployeeDto: CreateEmployeeDto): Promise<EmployeeEntity>{
-        return this.PrismaService.employee.create({data:  CreateEmployeeDto});
+        return await this.PrismaService.employee.create({data:  CreateEmployeeDto});
     }
 
     async findAll(): Promise<EmployeeEntity[]>{
-        return this.PrismaService.employee.findMany();
+        return await  this.PrismaService.employee.findMany();
     }
 
     async findUnique(id: string): Promise<EmployeeEntity>{
